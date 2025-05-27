@@ -1,0 +1,97 @@
+/* styles.css */
+/* Overlay background */
+.img-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Fullscreen image */
+.img-lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  cursor: zoom-out;
+}
+
+
+/* Clearfix to prevent layout issues from floating images */
+.card::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.blog-post-img {
+  max-width: 50%;  /* Adjust as needed */
+}
+  
+/* Ensure all buttons use the same blue color */
+.btn-primary, 
+.btn-success, 
+.btn-secondary, 
+.btn-link {
+    background-color: #007BFF !important;
+    border-color: #007BFF !important;
+    color: white !important;
+}
+
+/* Hover effect for buttons */
+.btn-primary:hover, 
+.btn-success:hover, 
+.btn-secondary:hover, 
+.btn-link:hover {
+    background-color: #0069D9 !important;
+    border-color: #0062CC !important;
+    color: white !important;
+}
+
+/* Remove underline from btn-link on hover */
+.btn-link:hover {
+    text-decoration: none !important;
+}
+  
+  .card-body h5.card-title a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .card-body h5.card-title a:hover {
+    text-decoration: underline;
+  }
+  
+  .card-text {
+    color: #555;
+  }
+  
+.card {
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 1rem;
+}
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  

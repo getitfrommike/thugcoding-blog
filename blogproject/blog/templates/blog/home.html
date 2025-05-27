@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1 class="my-4">Blog Home</h1>
+
+{% for post in posts %}
+<div class="card mb-4 p-3">
+    {% if post.image %}
+        <img src="{{ post.image.url }}" class="blog-post-img" alt="{{ post.title }}">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+        </h5>
+        <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+        <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read More →</a>
+    </div>
+</div>
+{% endfor %}
+
+<h2 class="my-4">Uploaded Files</h2>
+<ul>
+    {% for file in files %}
+        <li><a href="{{ file.file.url }}">{{ file.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

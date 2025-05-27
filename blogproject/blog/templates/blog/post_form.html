@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ form.instance.pk|default:"New" }} Post{% endblock %}
+
+{% block content %}
+<h1>{{ form.instance.pk|default:"New" }} Post</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+<a href="{% url 'home' %}" class="btn btn-link">Back to home</a>
+{% endblock %}
+
