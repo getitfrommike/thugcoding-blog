@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout, login
+from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
 from .models import Post, UploadedFile, Comment
@@ -17,7 +17,7 @@ def home(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments = post.comments.all().order_by('-created_at')
+    comments = post.comments.filter(active=True).order_by('-created_at')
 
     if request.method == 'POST' and request.user.is_authenticated:
         form = CommentForm(request.POST)
@@ -61,10 +61,6 @@ def edit_post(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_form.html', {'form': form})
 
-def logout_view(request):
-    logout(request)
-    return redirect('home')
-
 @login_required
 def upload_file(request):
     if request.method == 'POST':
@@ -91,3 +87,5 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'blog/register.html', {'form': form})
+
+

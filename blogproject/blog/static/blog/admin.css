@@ -1,0 +1,7 @@
+/* Force black text and clean look in CKEditor in admin */
+.ck-editor__editable {
+    color: black !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
+    background-color: white !important;
+}

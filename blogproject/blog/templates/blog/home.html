@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load embed_filters %}
 
 {% block title %}Home{% endblock %}
 
@@ -8,17 +9,20 @@
 {% for post in posts %}
 <div class="card mb-4 p-3">
     {% if post.image %}
-        <img src="{{ post.image.url }}" class="blog-post-img" alt="{{ post.title }}">
+        <img src="{{ post.image.url }}" class="blog-post-img mb-2" alt="{{ post.title }}">
     {% endif %}
     <div class="card-body">
         <h5 class="card-title">
             <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
         </h5>
-        <p class="card-text">{{ post.content|truncatewords:30 }}</p>
-        <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read More →</a>
+        <div class="card-text">
+            {{ post.content|render_embeds|truncatewords:65|safe }}  {# ✅ Embed + truncate here #}
+        </div>
+        <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary mt-2">Read More →</a>
     </div>
 </div>
 {% endfor %}
+
 
 <h2 class="my-4">Uploaded Files</h2>
 <ul>
@@ -27,3 +31,4 @@
     {% endfor %}
 </ul>
 {% endblock %}
+

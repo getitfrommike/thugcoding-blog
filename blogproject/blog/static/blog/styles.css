@@ -22,7 +22,6 @@
   cursor: zoom-out;
 }
 
-
 /* Clearfix to prevent layout issues from floating images */
 .card::after {
   content: "";
@@ -94,4 +93,59 @@
     border-color: #004085;
   }
   
-  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.comment-box {
+    background-color: #f9f9f9;
+    border-left: 4px solid #ccc;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.comment-box strong {
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img.post-detail-img {
+  max-width: 700px !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+
+.comment-body iframe {
+    width: 100% !important;
+    max-width: 700px;
+    height: 400px;
+    display: block;
+    margin: 1em auto;
+}
+
+figure.media iframe {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    margin: 1.5em auto;
+}
