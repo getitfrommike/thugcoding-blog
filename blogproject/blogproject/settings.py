@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'your-secret-key-here'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'blog.thugcoding.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'blog.thugcoding.com', '209.94.61.28' ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -123,3 +123,7 @@ CKEDITOR_5_CONFIGS = {
         },
     }
 }
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
